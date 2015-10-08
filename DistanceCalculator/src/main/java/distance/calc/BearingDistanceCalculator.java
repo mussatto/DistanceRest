@@ -1,4 +1,4 @@
-package distance;
+package distance.calc;
 
 public class BearingDistanceCalculator implements DistanceCalculatorMethod{
 

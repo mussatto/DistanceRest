@@ -1,5 +1,8 @@
 package distance;
 
+import distance.calc.City;
+import distance.calc.Distance;
+import distance.calc.DistanceCalculator;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

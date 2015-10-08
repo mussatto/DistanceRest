@@ -27,7 +27,7 @@ repositories {
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
-    compile project(':DistanceCalculatorRest')
+    compile project(':DistanceCalculator')
     testCompile group: 'junit', name: 'junit', version: '4.11'
     providedRuntime 'org.apache.tomcat.embed:tomcat-embed-jasper'
     providedRuntime 'javax.servlet:jstl'

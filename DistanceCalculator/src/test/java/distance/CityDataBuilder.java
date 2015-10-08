@@ -1,5 +1,7 @@
 package distance;
 
+import distance.calc.City;
+
 public class CityDataBuilder {
 
     //by

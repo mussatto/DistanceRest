@@ -1,4 +1,4 @@
-package distance;
+package distance.calc;
 
 public interface DistanceCalculatorMethod {
 
