@@ -6,6 +6,8 @@ public class Distance {
 
     private final MeasureUnit measureUnit;
 
+    public static Distance ZERO = new Distance(0, MeasureUnit.KM);
+
     public Distance(double units, MeasureUnit measureUnit){
         this.units=units;
         this.measureUnit=measureUnit;
