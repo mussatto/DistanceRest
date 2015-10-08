@@ -11,8 +11,8 @@
         function doSend(){
             var from = $("#input1").val();
             var to = $("#input2").val();
-
-            var url = "http://localhost:8080/services/distance?from="+from+"&to="+to;
+            var unit = $("#input3").val();
+            var url = "http://localhost:8080/services/distance?from="+from+"&to="+to+"&unit="+unit;
 
 
             $.getJSON(url, function(result){
@@ -22,11 +22,14 @@
         }
     </script>
     <h1>Distance Location</h1>
-    <label for="input1">Number</label>
+    <label for="input1">From</label>
     <input maxlength="18" id="input1" name="input1" style="width:150px" />
 
-    <label for="input2">Number</label>
+    <label for="input2">To</label>
     <input maxlength="18" id="input2" name="input2" style="width:150px"  />
+
+    <label for="input3">To</label>
+    <input maxlength="18" id="input3" name="input3" style="width:150px"  value="KM"/>
 
     <button onclick="doSend()">Calculate</button>
 
