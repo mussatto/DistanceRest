@@ -1,8 +1,5 @@
 package distance;
 
-/**
- * Created by vitormussatto on 07/10/15.
- */
 public class Distance {
 
     private final double units;

@@ -2,18 +2,19 @@ package distance;
 
 public class DistanceCalculator {
 
+    private DistanceCalculatorMethod distanceCalculatorMethod;
+
     public static DistanceCalculator createDefault(){
-        return new DistanceCalculator();
+        return new DistanceCalculator(new HaversineDistanceCalculator());
     }
 
-    private DistanceCalculator(){
-
+    private DistanceCalculator(DistanceCalculatorMethod distanceCalculatorMethod){
+        this.distanceCalculatorMethod=distanceCalculatorMethod;
     }
 
     public Distance calculateDistance(City from, City to){
-
-
-        return new Distance(0, MeasureUnit.KM);
+        double distanceKM = distanceCalculatorMethod.calculateDistance(from.getCoordinates(),to.getCoordinates());
+        return new Distance(distanceKM, MeasureUnit.KM);
     }
     
 }

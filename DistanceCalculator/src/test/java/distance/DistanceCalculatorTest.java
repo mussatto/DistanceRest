@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class DistanceCalculatorTest {
-
+    //reference: http://www.movable-type.co.uk/scripts/latlong.html
     @Test
     public void calculateDistanceSPRJKmTest(){
         DistanceCalculator calculator = DistanceCalculator.createDefault();
@@ -13,36 +13,27 @@ public class DistanceCalculatorTest {
         City rj = CityDataBuilder.createRioDeJaneiro();
         Distance distance = calculator.calculateDistance(sp, rj);
 
-        //361.150 kilometers
-        //224.410 miles
-
-        assertEquals(361.150, distance.getUnits(), 0.01);
+        assertEquals(332.6, distance.getUnits(), 0.3);
     }
 
     @Test
     public void calculateDistanceSPBRKmTest(){
         DistanceCalculator calculator = DistanceCalculator.createDefault();
         City sp = CityDataBuilder.createSaoPaulo();
-        City rj = CityDataBuilder.createBrasilia();
-        Distance distance = calculator.calculateDistance(sp, rj);
+        City br = CityDataBuilder.createBrasilia();
+        Distance distance = calculator.calculateDistance(sp, br);
 
-        //1176.890 kilometers
-        //731.290 miles
-
-        assertEquals(1176.890, distance.getUnits(), 0.01);
+        assertEquals(896.3, distance.getUnits(), 0.3);
     }
 
     @Test
     public void calculateDistanceRJBRKmTest(){
         DistanceCalculator calculator = DistanceCalculator.createDefault();
-        City sp = CityDataBuilder.createSaoPaulo();
-        City rj = CityDataBuilder.createBrasilia();
-        Distance distance = calculator.calculateDistance(sp, rj);
+        City rj = CityDataBuilder.createRioDeJaneiro();
+        City br = CityDataBuilder.createBrasilia();
+        Distance distance = calculator.calculateDistance(rj, br);
 
-        //1335.120 kilometers
-        //829.60 miles
-
-        assertEquals(1335.120, distance.getUnits(), 0.01);
+        assertEquals(927.7, distance.getUnits(), 0.3);
     }
 
 }
