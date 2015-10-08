@@ -25,7 +25,9 @@ public class DistanceCalculator {
     }
 
     public Distance calculateDistance(City from, City to, MeasureUnit measureUnit){
-
+        if(from==null || to==null){
+            throw new IllegalArgumentException("Cannot be null");
+        }
         double distanceKM = distanceCalculatorMethod.calculateDistance(from.getCoordinates(),
                 to.getCoordinates(), measureUnit);
         return new Distance(distanceKM, measureUnit);

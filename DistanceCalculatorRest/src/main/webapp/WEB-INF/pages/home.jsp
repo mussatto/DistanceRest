@@ -9,22 +9,26 @@
 <body>
     <script>
         function doSend(){
-            var number = $("#input1").val();
+            var from = $("#input1").val();
+            var to = $("#input2").val();
 
-            var url = "http://localhost:8080/services/distance?loc1="+number;
+            var url = "http://localhost:8080/services/distance?from="+from+"&to="+to;
 
 
             $.getJSON(url, function(result){
-                $.each(result, function(i, field){
-                    $("#response").html(field);
-                });
+
+                    $("#response").html(result);
             });
         }
     </script>
     <h1>Distance Location</h1>
     <label for="input1">Number</label>
-    <input maxlength="18" id="input1" name="input1" style="width:150px" onkeyup="doSend()" />
+    <input maxlength="18" id="input1" name="input1" style="width:150px" />
 
+    <label for="input2">Number</label>
+    <input maxlength="18" id="input2" name="input2" style="width:150px"  />
+
+    <button onclick="doSend()">Calculate</button>
 
     <div>
         <label for="response">Distance:</label>

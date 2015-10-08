@@ -70,4 +70,11 @@ public class DistanceCalculatorTest {
         assertEquals(576.44606, distance.getUnits(), 0.3);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void calculateNullDistance(){
+        DistanceCalculator calculator = DistanceCalculator.createDefault();
+        Distance distance = calculator.calculateDistance(null, null);
+
+    }
+
 }
