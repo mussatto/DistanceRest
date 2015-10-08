@@ -2,19 +2,33 @@ package distance;
 
 public class DistanceCalculator {
 
-    private DistanceCalculatorMethod distanceCalculatorMethod;
+    private final DistanceCalculatorMethod distanceCalculatorMethod;
+
+    private final MeasureUnit measureUnit;
 
     public static DistanceCalculator createDefault(){
-        return new DistanceCalculator(new HaversineDistanceCalculator());
+        return new DistanceCalculator(new HaversineDistanceCalculator(), MeasureUnit.KM);
     }
 
-    private DistanceCalculator(DistanceCalculatorMethod distanceCalculatorMethod){
+    public static DistanceCalculator createInMiles(){
+        return new DistanceCalculator(new HaversineDistanceCalculator(), MeasureUnit.MI);
+    }
+
+    private DistanceCalculator(DistanceCalculatorMethod distanceCalculatorMethod,
+                               MeasureUnit measureUnit){
+        this.measureUnit=measureUnit;
         this.distanceCalculatorMethod=distanceCalculatorMethod;
     }
 
     public Distance calculateDistance(City from, City to){
-        double distanceKM = distanceCalculatorMethod.calculateDistance(from.getCoordinates(),to.getCoordinates());
-        return new Distance(distanceKM, MeasureUnit.KM);
+        return calculateDistance(from,to, measureUnit);
+    }
+
+    public Distance calculateDistance(City from, City to, MeasureUnit measureUnit){
+
+        double distanceKM = distanceCalculatorMethod.calculateDistance(from.getCoordinates(),
+                to.getCoordinates(), measureUnit);
+        return new Distance(distanceKM, measureUnit);
     }
     
 }
