@@ -20,3 +20,7 @@ Crie um BD mysql, utilizando como referencia o script em scripts/setup_docker.sh
 java -jar DistanceCalculatorRest/build/libs/DistanceCalculatorRest-1.0.war
 
 abrir o browser em : http://localhost:8080/
+
+A decisao de utilizar a formula haversine foi porque 'mantém-se particularmente
+bem condicionado para computação numérica, mesmo em pequenas distâncias'
+ – diferente de calculos baseados nas leis esfericas de cosseno

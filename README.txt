@@ -1,17 +1,17 @@
 Overview:
 
-Este e um projeto multimodulos e utiliza o gradle para gestao de dependencia
+This is a multi-module project that uses gradle for depency management
 
 DistanceCalculator
-Contem as classes para calculo de distancia entre 2 pontos (latitude e longitude) no globo
+Contain classes for distance calculations between 2 cities (using latitude and longitude)
 
 DistanceCalculatorRest
-Possui dependencia de DistanceCalculator e expoe as funcionalidades utilizando REST
-Utiliza Spring MVC + Spring Boot para isto
+Contains dependency for DistanceCalculator and exposes the functonalities using REST
+Uses Spring MVC + Sprint Boot for this
 
 How to Run:
 
-Crie um BD mysql, utilizando como referencia o script em scripts/setup_docker.sh
+Create a mysql database, using the script as reference scripts/setup_docker.sh
 
 ./gradlew compileJava
 
@@ -19,4 +19,7 @@ Crie um BD mysql, utilizando como referencia o script em scripts/setup_docker.sh
 
 java -jar DistanceCalculatorRest/build/libs/DistanceCalculatorRest-1.0.war
 
-abrir o browser em : http://localhost:8080/
+open the browser in: http://localhost:8080/
+
+I decided to use haversine formula because from research:
+The haversine formula ‘remains particularly well-conditioned for numerical computa­tion even at small distances’ – unlike calculations based on the spherical law of cosines.
