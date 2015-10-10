@@ -15,7 +15,7 @@
 /website/website.iws
 /performanceTest/build
 /subprojects/*/ide
-/*.iml
+*.iml
 /*.ipr
 /*.iws
 /subprojects/*/*.iml
